@@ -1,0 +1,390 @@
+/* Layout - Grid Systems and Containers */
+/* Workshop Craft Aesthetic */
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+}
+
+.container-narrow {
+    max-width: 800px;
+}
+
+.container-wide {
+    max-width: 1400px;
+}
+
+/* Sections */
+section {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+
+.section-alt {
+    background-color: var(--color-bg-alt);
+}
+
+/* Blueprint grid background for sections */
+.section-grid {
+    position: relative;
+}
+
+.section-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(var(--color-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.section-grid > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Grid system */
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid-gap-sm {
+    gap: var(--spacing-sm);
+}
+
+.grid-gap-md {
+    gap: var(--spacing-md);
+}
+
+.grid-gap-xl {
+    gap: var(--spacing-xl);
+}
+
+.grid-gap-2xl {
+    gap: var(--spacing-2xl);
+}
+
+/* Mobile first - single column by default */
+.grid-2,
+.grid-3,
+.grid-4 {
+    grid-template-columns: 1fr;
+}
+
+/* Tablet and up - 640px */
+@media (min-width: 640px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop - 1024px */
+@media (min-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Asymmetric grids */
+.grid-asymmetric-left {
+    display: grid;
+    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+}
+
+.grid-asymmetric-right {
+    display: grid;
+    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+    .grid-asymmetric-left {
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .grid-asymmetric-right {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Staggered grid for visual interest */
+.grid-staggered {
+    display: grid;
+    gap: var(--spacing-lg);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .grid-staggered {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-staggered > *:nth-child(odd) {
+        margin-top: 0;
+    }
+
+    .grid-staggered > *:nth-child(even) {
+        margin-top: var(--spacing-xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-staggered {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-staggered > *:nth-child(3n+1) {
+        margin-top: 0;
+    }
+
+    .grid-staggered > *:nth-child(3n+2) {
+        margin-top: var(--spacing-lg);
+    }
+
+    .grid-staggered > *:nth-child(3n) {
+        margin-top: var(--spacing-xl);
+    }
+}
+
+/* Two column with sidebar */
+.grid-sidebar-left {
+    display: grid;
+    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+}
+
+.grid-sidebar-right {
+    display: grid;
+    gap: var(--spacing-2xl);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+    .grid-sidebar-left {
+        grid-template-columns: 280px 1fr;
+    }
+
+    .grid-sidebar-right {
+        grid-template-columns: 1fr 280px;
+    }
+}
+
+/* Flexbox utilities */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.items-stretch {
+    align-items: stretch;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.gap-xs { gap: var(--spacing-xs); }
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+.gap-2xl { gap: var(--spacing-2xl); }
+
+/* Spacing utilities */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mt-2xl { margin-top: var(--spacing-2xl); }
+.mt-3xl { margin-top: var(--spacing-3xl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-2xl { margin-bottom: var(--spacing-2xl); }
+.mb-3xl { margin-bottom: var(--spacing-3xl); }
+
+.ml-auto { margin-left: auto; }
+.mr-auto { margin-right: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.pt-0 { padding-top: 0; }
+.pb-0 { padding-bottom: 0; }
+
+/* Text alignment */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Max width utilities */
+.max-w-prose {
+    max-width: 65ch;
+}
+
+.max-w-sm {
+    max-width: 640px;
+}
+
+.max-w-md {
+    max-width: 768px;
+}
+
+.max-w-lg {
+    max-width: 1024px;
+}
+
+/* Width utilities */
+.w-full {
+    width: 100%;
+}
+
+/* Visibility utilities */
+.hidden {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+@media (min-width: 640px) {
+    .sm\:block {
+        display: block;
+    }
+    .sm\:hidden {
+        display: none;
+    }
+    .sm\:flex {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:block {
+        display: block;
+    }
+    .lg\:hidden {
+        display: none;
+    }
+    .lg\:flex {
+        display: flex;
+    }
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: var(--spacing-xl) 0;
+}
+
+.divider-thick {
+    height: 2px;
+}
+
+/* Sticky sidebar */
+.sticky-sidebar {
+    position: sticky;
+    top: calc(64px + var(--spacing-lg));
+}
+
+/* Aspect ratios */
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+    aspect-ratio: 16 / 9;
+}
+
+/* Overflow */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+/* Position utilities */
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

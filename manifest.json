@@ -1,0 +1,24 @@
+{
+  "name": "Bluenode Technologies - Website Development",
+  "short_name": "Bluenode Technologies",
+  "description": "Simple, modern websites for small businesses. Professional online presence without the complexity.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e4078",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "images/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

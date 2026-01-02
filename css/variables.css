@@ -1,0 +1,207 @@
+/* CSS Custom Properties - Design System */
+/* Workshop Craft Aesthetic - Precision, Reliability, Craftsmanship */
+
+:root {
+    /* ===== COLOR PALETTE ===== */
+
+    /* Background Colors - Warm neutrals */
+    --color-bg-base: #FAFAF8;           /* Warm off-white (paper) */
+    --color-bg-elevated: #FFFFFF;        /* Cards, elevated surfaces */
+    --color-bg-sunken: #F4F4F2;          /* Alternating sections */
+
+    /* Semantic background aliases */
+    --color-bg: var(--color-bg-base);
+    --color-bg-alt: var(--color-bg-sunken);
+
+    /* Text Colors */
+    --color-text-primary: #1A1A1A;       /* Headlines */
+    --color-text-secondary: #404040;     /* Body text */
+    --color-text-tertiary: #6B6B6B;      /* Supporting text */
+
+    /* Semantic text aliases */
+    --color-text: var(--color-text-secondary);
+    --color-text-light: var(--color-text-tertiary);
+    --color-text-lighter: #8A8A8A;
+
+    /* Brand Colors */
+    --color-primary: #1A1A1A;            /* Headlines, primary elements */
+    --color-primary-dark: #0D0D0D;       /* Darker variant */
+
+    /* Accent Color - Warm Amber */
+    --color-accent: #D97706;             /* CTAs, links, interactive */
+    --color-accent-hover: #B45309;       /* Hover state */
+    --color-accent-light: #FEF3C7;       /* Light amber for backgrounds */
+
+    /* Functional Colors */
+    --color-success: #059669;
+    --color-warning: #D97706;
+    --color-error: #DC2626;
+
+    /* Border Colors */
+    --color-border: #E5E5E3;
+    --color-border-light: #F0F0EE;
+
+    /* Blueprint Grid */
+    --color-grid: rgba(180, 180, 176, 0.3);
+    --color-grid-dark: rgba(180, 180, 176, 0.5);
+
+    /* ===== TYPOGRAPHY ===== */
+
+    /* Font Families */
+    --font-display: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+    /* Legacy alias */
+    --font-family: var(--font-body);
+
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;             /* 12px */
+    --font-size-sm: 0.875rem;            /* 14px */
+    --font-size-base: 1rem;              /* 16px */
+    --font-size-lg: 1.125rem;            /* 18px */
+    --font-size-xl: 1.375rem;            /* 22px */
+    --font-size-2xl: 1.75rem;            /* 28px */
+    --font-size-3xl: 2.5rem;             /* 40px */
+    --font-size-4xl: 3.5rem;             /* 56px */
+    --font-size-5xl: 4.5rem;             /* 72px */
+
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line Heights */
+    --line-height-tight: 1.1;
+    --line-height-heading: 1.2;
+    --line-height-base: 1.6;
+    --line-height-relaxed: 1.8;
+
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+    --letter-spacing-wider: 0.1em;
+
+    /* ===== SPACING ===== */
+
+    --spacing-xs: 0.5rem;                /* 8px */
+    --spacing-sm: 1rem;                  /* 16px */
+    --spacing-md: 1.5rem;                /* 24px */
+    --spacing-lg: 2rem;                  /* 32px */
+    --spacing-xl: 3rem;                  /* 48px */
+    --spacing-2xl: 4rem;                 /* 64px */
+    --spacing-3xl: 6rem;                 /* 96px */
+    --spacing-4xl: 8rem;                 /* 128px */
+
+    /* ===== LAYOUT ===== */
+
+    --container-max-width: 1200px;
+    --container-padding: var(--spacing-md);
+    --section-padding: var(--spacing-3xl);
+
+    /* Border Radius - Sharp, precision feel */
+    --border-radius-sm: 2px;
+    --border-radius: 2px;
+    --border-radius-md: 4px;
+    --border-radius-lg: 4px;
+
+    /* ===== TRANSITIONS ===== */
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+
+    /* Legacy aliases */
+    --transition-fast: var(--duration-fast) var(--ease-out);
+    --transition: var(--duration-normal) var(--ease-out);
+    --transition-slow: var(--duration-slow) var(--ease-out);
+
+    /* ===== SHADOWS ===== */
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.12);
+
+    /* ===== Z-INDEX ===== */
+
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+}
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"] {
+    /* Background Colors */
+    --color-bg-base: #141414;
+    --color-bg-elevated: #1F1F1F;
+    --color-bg-sunken: #0A0A0A;
+
+    /* Semantic aliases */
+    --color-bg: var(--color-bg-base);
+    --color-bg-alt: var(--color-bg-sunken);
+
+    /* Text Colors */
+    --color-text-primary: #FAFAFA;
+    --color-text-secondary: #D4D4D4;
+    --color-text-tertiary: #A3A3A3;
+
+    /* Semantic aliases */
+    --color-text: var(--color-text-secondary);
+    --color-text-light: var(--color-text-tertiary);
+    --color-text-lighter: #737373;
+
+    /* Brand Colors */
+    --color-primary: #FAFAFA;
+    --color-primary-dark: #E5E5E5;
+
+    /* Accent - Brighter amber for dark mode */
+    --color-accent: #F59E0B;
+    --color-accent-hover: #FBBF24;
+    --color-accent-light: #451A03;
+
+    /* Border Colors */
+    --color-border: #2A2A2A;
+    --color-border-light: #1F1F1F;
+
+    /* Blueprint Grid */
+    --color-grid: rgba(100, 100, 100, 0.2);
+    --color-grid-dark: rgba(100, 100, 100, 0.3);
+
+    /* Shadows for dark mode */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    :root {
+        --font-size-3xl: 2rem;           /* 32px on mobile */
+        --font-size-4xl: 2.5rem;         /* 40px on mobile */
+        --font-size-5xl: 3rem;           /* 48px on mobile */
+        --section-padding: var(--spacing-2xl);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-2xl: 1.5rem;         /* 24px on small mobile */
+        --font-size-3xl: 1.75rem;        /* 28px on small mobile */
+        --font-size-4xl: 2rem;           /* 32px on small mobile */
+        --font-size-5xl: 2.5rem;         /* 40px on small mobile */
+        --container-padding: var(--spacing-sm);
+    }
+}

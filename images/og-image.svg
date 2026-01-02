@@ -1,0 +1,31 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1A1A1A"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Accent bar at top -->
+  <rect width="1200" height="6" fill="#D97706"/>
+
+  <!-- Logo circle with "B" -->
+  <circle cx="600" cy="220" r="70" fill="#D97706"/>
+  <text x="600" y="245" font-family="JetBrains Mono, monospace" font-size="72" font-weight="600" fill="#1A1A1A" text-anchor="middle">B</text>
+
+  <!-- Company name -->
+  <text x="600" y="340" font-family="JetBrains Mono, monospace" font-size="56" font-weight="600" fill="#FFFFFF" text-anchor="middle">Bluenode</text>
+
+  <!-- Tagline -->
+  <text x="600" y="400" font-family="DM Sans, sans-serif" font-size="28" fill="#8A8A8A" text-anchor="middle">Simple, Modern Websites for Small Businesses</text>
+
+  <!-- URL -->
+  <text x="600" y="560" font-family="JetBrains Mono, monospace" font-size="20" fill="#D97706" text-anchor="middle">bluenode.co.za</text>
+
+  <!-- Decorative elements -->
+  <rect x="480" y="440" width="240" height="2" fill="#D97706" opacity="0.3"/>
+</svg>

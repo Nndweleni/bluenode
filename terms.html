@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms of Service for Bluenode website development, hosting, and email services. Read our full terms and policies.">
+    <title>Terms of Service - Bluenode</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Bluenode">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bluenode.co.za/terms.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bluenode.co.za/terms.html">
+    <meta property="og:title" content="Terms of Service - Bluenode">
+    <meta property="og:description" content="Read the full Terms of Service for Bluenode website development, hosting, and email services.">
+    <meta property="og:image" content="https://bluenode.co.za/images/og-image.jpg">
+    <meta property="og:site_name" content="Bluenode">
+    <meta property="og:locale" content="en_ZA">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bluenode.co.za/terms.html">
+    <meta property="twitter:title" content="Terms of Service - Bluenode">
+    <meta property="twitter:description" content="Read the full Terms of Service for Bluenode website development, hosting, and email services.">
+    <meta property="twitter:image" content="https://bluenode.co.za/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Google Fonts - JetBrains Mono + DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Theme initialization (prevents flash) -->
+    <script>
+    (function() {
+        var theme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.classList.add('no-transition');
+    })();
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Header/Navigation -->
+    <header class="site-header">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="images/bluenode.png" alt="Bluenode Logo">
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="mailto:hello@bluenode.co.za?subject=Website%20Inquiry" class="btn btn-primary">Contact Us</a></li>
+            </ul>
+            <!-- Theme Toggle Switch -->
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" class="theme-switch__input">
+                <span class="theme-switch__slider">
+                    <span class="theme-switch__icon theme-switch__icon--sun">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </span>
+                    <span class="theme-switch__icon theme-switch__icon--moon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </span>
+                </span>
+                <span class="visually-hidden">Toggle dark mode</span>
+            </label>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section style="background-color: var(--color-bg-alt); padding: var(--spacing-2xl) 0;">
+            <div class="container">
+                <h1>Terms of Service</h1>
+                <p style="font-size: var(--font-size-lg);">Last updated: January 2025</p>
+            </div>
+        </section>
+
+        <!-- Terms Content -->
+        <section>
+            <div class="container">
+                <div class="terms-layout">
+                    <!-- Table of Contents -->
+                    <div class="terms-toc">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#scope">1. Scope of Services</a></li>
+                            <li><a href="#development">2. Website Development & Delivery</a></li>
+                            <li><a href="#hosting">3. Hosting Services</a></li>
+                            <li><a href="#backups">4. Backups & Data Responsibility</a></li>
+                            <li><a href="#email">5. Email Services</a></li>
+                            <li><a href="#domains">6. Domains</a></li>
+                            <li><a href="#ssl">7. SSL & Third-Party Services</a></li>
+                            <li><a href="#security">8. Security & Acceptable Use</a></li>
+                            <li><a href="#payments">9. Payments & Billing</a></li>
+                            <li><a href="#support">10. Support</a></li>
+                            <li><a href="#capacity">11. Client Capacity</a></li>
+                            <li><a href="#liability">12. Limitation of Liability</a></li>
+                            <li><a href="#termination">13. Termination</a></li>
+                            <li><a href="#acceptance">14. Acceptance</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-content">
+                        <!-- Section 1 -->
+                    <h2 id="scope">1. Scope of Services</h2>
+                    <p>We provide starter-level services including:</p>
+                    <ul>
+                        <li>Website development</li>
+                        <li>Web hosting (resold via third-party providers)</li>
+                        <li>Email setup and configuration</li>
+                    </ul>
+                    <p>Services are intended for individuals and small businesses only. No enterprise-grade guarantees are offered.</p>
+
+                    <!-- Section 2 -->
+                    <h2 id="development">2. Website Development & Delivery</h2>
+
+                    <h3>2.1 Delivery Timeline</h3>
+                    <p>Standard Basic and Standard websites are delivered within <strong>up to 14 business days</strong> from the date all required content and access details are received.</p>
+
+                    <h3>2.2 Content Submission Requirements</h3>
+                    <p>Clients must provide all required content within <strong>7 business days</strong> of project start. Required content includes:</p>
+                    <ul>
+                        <li>Written text</li>
+                        <li>Images and logos</li>
+                        <li>Branding guidelines (if applicable)</li>
+                        <li>Access credentials where required</li>
+                    </ul>
+                    <p>Failure to provide content pauses the delivery timeline.</p>
+
+                    <h3>2.3 Revisions</h3>
+                    <p>Each website includes <strong>up to 3 revision rounds</strong>. Revisions are limited to text edits, layout adjustments, and minor design changes. Additional revisions or major changes are billed separately.</p>
+
+                    <h3>2.4 Scope Control</h3>
+                    <p>The following are considered out of scope unless agreed in writing:</p>
+                    <ul>
+                        <li>Additional pages</li>
+                        <li>New features or functionality</li>
+                        <li>Integrations or plugins</li>
+                        <li>Design changes beyond agreed layout</li>
+                    </ul>
+                    <p>Out-of-scope work may incur additional fees and timeline extensions.</p>
+
+                    <h3>2.5 Content Ownership</h3>
+                    <p>All client-supplied content remains the client's property. Content created by us becomes the client's property upon full payment. Clients confirm they have rights to all provided content.</p>
+
+                    <h3>2.6 No Guaranteed Deadlines</h3>
+                    <p>Delivery timelines are estimates and not guaranteed. We are not liable for business losses caused by delays.</p>
+
+                    <!-- Section 3 -->
+                    <h2 id="hosting">3. Hosting Services</h2>
+                    <p>Hosting services are resold via third-party providers and operate on a shared-resource basis.</p>
+                    <ul>
+                        <li>Uptime and performance are not guaranteed</li>
+                        <li>Resources are subject to fair usage policies</li>
+                        <li>Hosting may be suspended for abuse or non-payment</li>
+                    </ul>
+                    <p>We are not responsible for outages or failures caused by upstream providers.</p>
+
+                    <!-- Section 4 -->
+                    <h2 id="backups">4. Backups & Data Responsibility</h2>
+                    <ul>
+                        <li>Backups are provided on a best-effort basis</li>
+                        <li>Backup availability depends on the hosting provider</li>
+                        <li>Clients are responsible for maintaining their own backups</li>
+                        <li>We are not liable for data loss under any circumstances</li>
+                    </ul>
+
+                    <!-- Section 5 -->
+                    <h2 id="email">5. Email Services</h2>
+                    <ul>
+                        <li>Email hosting is included via cPanel where applicable</li>
+                        <li>Email setup and device configuration are billed separately</li>
+                        <li>Spam filtering and delivery are not guaranteed</li>
+                        <li>Clients are responsible for mailbox usage and storage</li>
+                    </ul>
+
+                    <!-- Section 6 -->
+                    <h2 id="domains">6. Domains</h2>
+                    <ul>
+                        <li>Domains are registered in the client's name</li>
+                        <li>Domains remain the client's property</li>
+                        <li>Domain renewals are billed annually</li>
+                        <li>Failure to renew may result in domain suspension or loss</li>
+                    </ul>
+
+                    <!-- Section 7 -->
+                    <h2 id="ssl">7. SSL & Third-Party Services</h2>
+                    <ul>
+                        <li>SSL availability depends on the hosting provider</li>
+                        <li>Paid SSL certificates are billed separately</li>
+                        <li>Third-party services and integrations are outside our control</li>
+                    </ul>
+
+                    <!-- Section 8 -->
+                    <h2 id="security">8. Security & Acceptable Use</h2>
+                    <p>We reserve the right to suspend or terminate services immediately for:</p>
+                    <ul>
+                        <li>Malware infections</li>
+                        <li>Illegal content or activities</li>
+                        <li>Excessive resource usage</li>
+                        <li>Abuse of hosting infrastructure</li>
+                    </ul>
+                    <p>Clients are responsible for securing their applications and credentials.</p>
+
+                    <!-- Section 9 -->
+                    <h2 id="payments">9. Payments & Billing</h2>
+                    <ul>
+                        <li>Website development fees are once-off</li>
+                        <li>Hosting is billed monthly or yearly in advance</li>
+                        <li>A 5 business day grace period applies</li>
+                        <li>Late payment may result in suspension</li>
+                        <li>Reinstatement fees may apply</li>
+                        <li>No refunds once work has commenced</li>
+                    </ul>
+
+                    <!-- Section 10 -->
+                    <h2 id="support">10. Support</h2>
+                    <ul>
+                        <li>Support is provided during business hours only</li>
+                        <li>Response times are not guaranteed</li>
+                        <li>Emergency support is not included</li>
+                    </ul>
+
+                    <!-- Section 11 -->
+                    <h2 id="capacity">11. Client Capacity</h2>
+                    <p>Client numbers are limited to maintain service quality. We reserve the right to decline new clients without obligation.</p>
+
+                    <!-- Section 12 -->
+                    <h2 id="liability">12. Limitation of Liability</h2>
+                    <p>We are not liable for:</p>
+                    <ul>
+                        <li>Loss of income or profits</li>
+                        <li>Business interruption</li>
+                        <li>Data loss or security breaches</li>
+                        <li>Actions or failures of third-party providers</li>
+                    </ul>
+
+                    <!-- Section 13 -->
+                    <h2 id="termination">13. Termination</h2>
+                    <p>We reserve the right to terminate services for:</p>
+                    <ul>
+                        <li>Non-payment</li>
+                        <li>Breach of these terms</li>
+                        <li>Abuse or illegal use</li>
+                    </ul>
+                    <p>Clients may terminate services with written notice. Outstanding balances remain payable.</p>
+
+                    <!-- Section 14 -->
+                    <h2 id="acceptance">14. Acceptance</h2>
+                    <p>By paying an invoice or using our services, clients confirm acceptance of these Terms of Service.</p>
+
+                    <!-- Contact -->
+                    <div class="info-box mt-2xl">
+                        <h4>Questions About Our Terms?</h4>
+                        <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:hello@bluenode.co.za">hello@bluenode.co.za</a>.</p>
+                    </div>
+
+                        <div class="text-center mt-2xl">
+                            <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+                            <a href="mailto:hello@bluenode.co.za?subject=Terms%20Question" class="btn btn-primary">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Bluenode</h4>
+                    <p>Simple, modern websites for small businesses. Professional online presence without the complexity.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:hello@bluenode.co.za">hello@bluenode.co.za</a></p>
+                    <p class="mt-md"><small>We respond within 24 business hours</small></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bluenode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Schema.org Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://bluenode.co.za/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Terms of Service",
+                "item": "https://bluenode.co.za/terms.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
