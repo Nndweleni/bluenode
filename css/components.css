@@ -162,6 +162,10 @@
     .nav-menu a:not(.btn):hover {
         background-color: var(--color-bg-alt);
     }
+
+    .nav-menu .btn {
+        margin-top: var(--spacing-md);
+    }
 }
 
 @media (min-width: 1024px) {
