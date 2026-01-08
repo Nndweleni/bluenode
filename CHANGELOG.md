@@ -18,6 +18,7 @@ This release includes comprehensive website content updates, new Privacy Policy,
 - **Support availability info**: Added "Evenings & weekends" availability messaging
 
 ### Changed
+- **Logo size**: Increased navbar logo from 60px → 80px (desktop) and 50px → 60px (mobile) for better visibility
 - **Email addresses**: Changed all `support@bluenode.co.za` to `hello@bluenode.co.za` (except onboarding pages which use `onboarding@bluenode.co.za`)
 - **Copyright format**: Updated from "© Bluenode Technologies (Pty) Ltd." to "© Bluenode Technologies (Pty) Ltd, trading as Bluenode."
 - **Terms of Service**: Complete rewrite with 18 sections (was 14), added new sections for Third-Party Services, Client Content Responsibility, Portfolio Usage, and Maintenance Services Scope
