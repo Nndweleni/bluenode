@@ -48,6 +48,7 @@ New sections on About page:
 - `services.html` - Added 3 new sections (DNS Access Note, Website Maintenance R400/month, Current Availability), updated hosting provider text, footer updated
 - `pricing.html` - Added Current Availability Notice section at top, navigation email updated, footer updated
 - `onboarding.html` - Footer updated with WhatsApp, Privacy Policy link, new copyright format (kept onboarding@ email)
+- `thank-you.html` - Footer updated with WhatsApp, Privacy Policy link, new copyright format (kept onboarding@ email)
 - All HTML files - Footer updated with WhatsApp, Privacy Policy link, new copyright format
 
 ### Services Page New Sections
