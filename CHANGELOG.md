@@ -4,6 +4,65 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.0.0] - 2026-01-08
+
+### Major Content Updates
+This release includes comprehensive website content updates, new Privacy Policy, updated Terms of Service, and a complete rewrite of the About page with a more personal, portfolio-focused approach.
+
+### Added
+- **Privacy Policy page** (`privacy.html`): Complete POPIA-compliant privacy policy with information collection, usage, sharing, data retention, and user rights sections
+- **Personal About page**: Completely rewritten About page introducing Nndweleni, the developer behind Bluenode
+- **Portfolio Special Offer**: Added discounted rates section for first 5 clients (R1,200 Basic, R1,700 Standard) with 3 slots remaining
+- **Current Availability notices**: Added "2 project slots remaining this month" messaging across site
+- **WhatsApp contact**: Added WhatsApp link (+27 81 776 6452) to all footers and CTA sections
+- **Support availability info**: Added "Evenings & weekends" availability messaging
+
+### Changed
+- **Logo size**: Increased navbar logo from 60px → 80px (desktop) and 50px → 60px (mobile) for better visibility
+- **Email addresses**: Changed all `support@bluenode.co.za` to `hello@bluenode.co.za` (except onboarding pages which use `onboarding@bluenode.co.za`)
+- **Copyright format**: Updated from "© Bluenode Technologies (Pty) Ltd." to "© Bluenode Technologies (Pty) Ltd, trading as Bluenode."
+- **Terms of Service**: Complete rewrite with 18 sections (was 14), added new sections for Third-Party Services, Client Content Responsibility, Portfolio Usage, and Maintenance Services Scope
+- **Homepage hero subtitle**: Added detailed subtitle "Affordable, professional websites for South African small businesses. No complexity, no hidden fees. Delivered within 14 business days."
+- **Homepage CTA section**: Changed from generic "Let's build..." to personal "I'm currently taking on 2-3 projects per month" with response time and availability details
+- **Footer Quick Links**: Added Privacy Policy link to all page footers
+- **Footer Contact section**: Added WhatsApp number and detailed response time/availability information
+
+### About Page Complete Rewrite
+New sections on About page:
+- **Hi, I'm Nndweleni**: Personal introduction with qualifications (MANCOSA, World Skills SA 2nd place)
+- **Why I Started Bluenode**: Explains motivation to help small businesses avoid overpriced or DIY solutions
+- **How I Work**: Capacity (2-3 projects/month), communication (email/WhatsApp evenings/weekends), response time (24 hours), timeline (14 days)
+- **Building My Portfolio**: Includes special launch offer with discounted pricing
+- **Our Philosophy: Boring Tech That Works**: Focus on proven, reliable technology
+- **Our Core Values**: Simplicity, Reliability, Transparency, Accessibility
+- **What We Actually Sell**: Outcome-focused value proposition
+- **Who We Work With**: Ideal client types and capacity limits
+- **Developer-Led, Not Agency Fluff**: Direct communication benefits
+
+### Files Created
+- `privacy.html` - New POPIA-compliant Privacy Policy page with full header, navigation, content, footer, and schema
+
+### Files Modified
+- `index.html` - Hero subtitle added, CTA section updated, footer updated, email changed to hello@
+- `about.html` - Complete replacement with personal, portfolio-focused content
+- `terms.html` - Complete content replacement with 18-section structure, link to privacy policy
+- `services.html` - Added 3 new sections (DNS Access Note, Website Maintenance R400/month, Current Availability), updated hosting provider text, footer updated
+- `pricing.html` - Added Current Availability Notice section at top, navigation email updated, footer updated
+- `onboarding.html` - Footer updated with WhatsApp, Privacy Policy link, new copyright format (kept onboarding@ email)
+- `thank-you.html` - Footer updated with WhatsApp, Privacy Policy link, new copyright format (kept onboarding@ email)
+- All HTML files - Footer updated with WhatsApp, Privacy Policy link, new copyright format
+
+### Services Page New Sections
+- **DNS Access Note**: Explains why DNS access is needed for hosting, email, SSL setup
+- **Website Maintenance (R400/month)**: Complete breakdown of what's included/excluded, 48-hour turnaround
+- **Current Availability**: Part-time operation model (2-3 projects/month, evenings/weekends communication)
+
+### Documentation
+- Branch: `feature/content-updates-jan-2026`
+- All changes focus on personalizing the Bluenode brand and adding transparency about part-time operation model
+
+---
+
 ## [1.1.4] - 2025-12-28
 
 ### Mobile UX Improvements
