@@ -45,7 +45,13 @@ New sections on About page:
 - `index.html` - Hero subtitle added, CTA section updated, footer updated, email changed to hello@
 - `about.html` - Complete replacement with personal, portfolio-focused content
 - `terms.html` - Complete content replacement with 18-section structure, link to privacy policy
+- `services.html` - Added 3 new sections (DNS Access Note, Website Maintenance R400/month, Current Availability), updated hosting provider text, footer updated
 - All HTML files - Footer updated with WhatsApp, Privacy Policy link, new copyright format
+
+### Services Page New Sections
+- **DNS Access Note**: Explains why DNS access is needed for hosting, email, SSL setup
+- **Website Maintenance (R400/month)**: Complete breakdown of what's included/excluded, 48-hour turnaround
+- **Current Availability**: Part-time operation model (2-3 projects/month, evenings/weekends communication)
 
 ### Documentation
 - Branch: `feature/content-updates-jan-2026`
