@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Close menu when clicking on a nav link
         const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
                 if (navMenu.classList.contains('active')) {
                     closeMenu();
                 }
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== Smooth Scroll for Anchor Links =====
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
 
-    anchorLinks.forEach(function(link) {
+    anchorLinks.forEach((link) => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Normalize: treat empty string, '/', and 'index.html' as home page
     const isHomePage = currentPage === '' || currentPage === 'index.html' || pathname === '/' || pathname.endsWith('/');
 
-    navMenuLinks.forEach(function(link) {
+    navMenuLinks.forEach((link) => {
         const linkPath = link.getAttribute('href');
 
         // Skip external links or anchor-only links
@@ -144,8 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== Form Enhancement (if contact forms are added later) =====
     // Placeholder for future form handling
     const forms = document.querySelectorAll('form');
-    forms.forEach(function(form) {
-        form.addEventListener('submit', function(e) {
+    forms.forEach((form) => {
+        form.addEventListener('submit', (e) => {
             // Future: Add form validation or handling here
         });
     });
@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add smooth scroll to top for any element with class "scroll-to-top"
     const scrollToTopElements = document.querySelectorAll('.scroll-to-top');
 
-    scrollToTopElements.forEach(function(element) {
-        element.addEventListener('click', function(e) {
+    scrollToTopElements.forEach((element) => {
+        element.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({
                 top: 0,
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add aria-current to active nav link
-    navMenuLinks.forEach(function(link) {
+    navMenuLinks.forEach((link) => {
         if (link.classList.contains('active')) {
             link.setAttribute('aria-current', 'page');
         }
@@ -182,8 +182,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const html = document.documentElement;
 
     // Remove no-transition class after initial load
-    requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
             html.classList.remove('no-transition');
         });
     });
@@ -234,8 +234,8 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -30px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 observer.unobserve(entry.target);
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe cards and sections for reveal animation
     const revealElements = document.querySelectorAll('.value-card, .pricing-card, .card, .feature-card, .process-step, .trust-stat');
-    revealElements.forEach(function(element, index) {
+    revealElements.forEach((element, index) => {
         element.classList.add('reveal');
         // Add staggered delay for items in same row
         const delay = (index % 3) * 50;
@@ -253,6 +253,4 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
-    // ===== Console Info =====
-    console.log('Bluenode website loaded successfully');
 });

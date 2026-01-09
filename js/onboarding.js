@@ -147,6 +147,11 @@ function showStep(stepNumber) {
         updateDomainHostingStep();
     }
 
+    // Generate summary when reaching step 9
+    if (stepNumber === 9) {
+        generateSummary();
+    }
+
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -227,7 +232,7 @@ function updateProgressIndicator(stepNumber) {
             // Add checkmark icon
             const numberEl = step.querySelector('.progress-step-number');
             if (numberEl) {
-                numberEl.innerHTML = '✓';
+                numberEl.textContent = '✓';
             }
         } else {
             // Reset number to sequential
@@ -636,15 +641,21 @@ function updateEmailInputs() {
     const count = parseInt(document.getElementById('numberOfMailboxes').value) || 1;
     const container = document.getElementById('emailNamesContainer');
 
-    container.innerHTML = '';
+    // Clear existing inputs
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     for (let i = 1; i <= count; i++) {
         const div = document.createElement('div');
         div.className = 'form-group';
-        div.innerHTML = '<label class="form-label required">Email ' + i + ' Name</label>' +
-            '<input type="text" class="form-input" name="emailName' + i + '" id="emailName' + i + '" placeholder="e.g., info, hello, support" required>' +
-            '<div class="form-helper">@' + (FormState.formData.domainName || FormState.formData.clientDomainName || 'yourdomain.com') + '</div>' +
-            '<div id="emailName' + i + '-error" class="form-error"></div>';
+
+        const domainName = FormState.formData.domainName || FormState.formData.clientDomainName || 'yourdomain.com';
+
+        div.innerHTML = `<label class="form-label required">Email ${i} Name</label>
+            <input type="text" class="form-input" name="emailName${i}" id="emailName${i}" placeholder="e.g., info, hello, support" required>
+            <div class="form-helper">@${domainName}</div>
+            <div id="emailName${i}-error" class="form-error"></div>`;
         container.appendChild(div);
     }
 }
@@ -841,7 +852,12 @@ function submitForm(e) {
     if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.classList.add('submitting');
-        submitBtn.innerHTML = '<span class="btn-spinner"></span> Submitting...';
+        // Clear button and add spinner
+        submitBtn.textContent = '';
+        const spinner = document.createElement('span');
+        spinner.className = 'btn-spinner';
+        submitBtn.appendChild(spinner);
+        submitBtn.appendChild(document.createTextNode(' Submitting...'));
     }
 
     // Show loading overlay
@@ -918,7 +934,7 @@ function submitForm(e) {
         if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.classList.remove('submitting');
-            submitBtn.innerHTML = 'Submit Application';
+            submitBtn.textContent = 'Submit Application';
         }
 
         // Show user-friendly error message
@@ -1071,15 +1087,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Generate summary when reaching step 9
-    const originalShowStep = showStep;
-    showStep = function(stepNumber) {
-        originalShowStep(stepNumber);
-        if (stepNumber === 9) {
-            generateSummary();
-        }
-    };
-
     // Warn before leaving with unsaved data
     window.addEventListener('beforeunload', function(e) {
         if (Object.keys(FormState.formData).length > 0 && FormState.currentStep > 1) {
@@ -1087,6 +1094,4 @@ document.addEventListener('DOMContentLoaded', function() {
             e.returnValue = '';
         }
     });
-
-    console.log('Onboarding form initialized');
 });
