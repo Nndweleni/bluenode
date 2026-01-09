@@ -21,6 +21,7 @@ Last Updated: 2026-01-09
 ├── pricing.html         # Pricing page
 ├── about.html           # About page
 ├── terms.html           # Terms of Service
+├── privacy.html         # Privacy Policy
 ├── onboarding.html      # Client onboarding form
 ├── thank-you.html       # Form confirmation
 ├── /css/                # Stylesheets (8 files)
@@ -30,7 +31,9 @@ Last Updated: 2026-01-09
 ├── sitemap.xml          # SEO sitemap
 ├── robots.txt           # Crawler directives
 ├── CHANGELOG.md         # Change history
-└── PROJECT-STATUS.md    # This file
+├── PROJECT-STATUS.md    # This file
+├── GIT-WORKFLOW.md      # Git branching strategy and workflow
+└── SEO-GUIDE.md         # SEO implementation guide
 ```
 
 ## Completed Features
@@ -152,6 +155,31 @@ Steps: 1 (Client) → 2 (Service) → 6 (Domain) → 8 (Legal) → 9 (Review)
 | Primary Contact | hello@bluenode.co.za |
 | Form Handler | Web3Forms (nndweleni@bluenode.co.za) |
 
+## Git Workflow
+
+**Repository:** GitLab - `https://gitlab.lennyhomelab.net/bluenode-technlogies/bluenode.git`
+
+### Branching Strategy
+
+| Branch | Purpose |
+|--------|---------|
+| `main` | Production-ready code (protected) |
+| `new-feature` | Feature development branch |
+| `bugfix/*` | Bug fixes and patches |
+| `hotfix/*` | Urgent production fixes |
+
+### Workflow Rules
+
+**❌ NEVER commit directly to `main`**
+
+**✅ Always use feature/bugfix branches:**
+- New features → work on `new-feature` branch
+- Bug fixes → create `bugfix/description` branch
+- Urgent fixes → create `hotfix/description` branch
+- Merge to `main` via GitLab merge requests only
+
+See **GIT-WORKFLOW.md** for complete workflow documentation.
+
 ## Deployment
 
 ### Recommended Platforms
@@ -169,4 +197,4 @@ Steps: 1 (Client) → 2 (Service) → 6 (Domain) → 8 (Legal) → 9 (Review)
 
 ---
 
-*This document should be updated whenever significant changes are made to th
+*This document should be updated whenever significant changes are made to the project.*
