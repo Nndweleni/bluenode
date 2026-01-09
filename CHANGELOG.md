@@ -4,7 +4,7 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [2.0.0] - 2026-01-09
+## [2.0.0] - 2026-01-08
 
 ### Major Content Updates
 This release includes comprehensive website content updates, new Privacy Policy, updated Terms of Service, and a complete rewrite of the About page with a more personal, portfolio-focused approach.
