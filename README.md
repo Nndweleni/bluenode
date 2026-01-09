@@ -85,10 +85,10 @@ This is a static HTML/CSS/JavaScript website built with simplicity and performan
 
 ### Changing Contact Email
 
-The site currently uses `hello@bluenode.com`. To change it:
+The site currently uses `hello@bluenode.co.za`. To change it:
 
 1. Use Find & Replace in your text editor
-2. Find: `hello@bluenode.com`
+2. Find: `hello@bluenode.co.za`
 3. Replace with: `your-new-email@domain.com`
 4. Replace across all HTML files
 5. Save and upload
@@ -237,13 +237,32 @@ The client onboarding form uses **Web3Forms** (https://web3forms.com) for email 
 - Check browser console for submission errors
 - Test from actual domain (not localhost) for best results
 
+## Development
+
+### Git Workflow
+
+This project follows a structured git branching strategy. **Never commit directly to `main`.**
+
+See **[GIT-WORKFLOW.md](GIT-WORKFLOW.md)** for complete documentation on:
+- Branching strategy
+- Commit message conventions
+- Creating merge requests
+- Feature and bugfix workflows
+
+### Documentation
+
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and changes
+- **[PROJECT-STATUS.md](PROJECT-STATUS.md)** - Project overview and status
+- **[GIT-WORKFLOW.md](GIT-WORKFLOW.md)** - Development workflow
+- **[SEO-GUIDE.md](SEO-GUIDE.md)** - SEO implementation guide
+
 ## Contact Information
 
 For questions or support regarding this website:
 
 - Email: nndweleni@bluenode.co.za
 - Support Email: hello@bluenode.co.za
-- GitHub: (Add repository link if applicable)
+- Repository: GitLab - `https://gitlab.lennyhomelab.net/bluenode-technlogies/bluenode.git`
 
 ## License
 
