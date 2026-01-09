@@ -4,6 +4,46 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.1.0] - 2026-01-09
+
+### Code Quality & Security Improvements
+This release focuses on modernizing the JavaScript codebase with ES6+ patterns, improving security, and enhancing code maintainability.
+
+### Changed
+- **JavaScript modernization**: Converted traditional `function()` callbacks to ES6 arrow functions throughout `js/main.js`
+  - Navigation link handlers
+  - Anchor link scroll handlers
+  - Form submission handlers
+  - Scroll-to-top handlers
+  - IntersectionObserver callbacks
+  - requestAnimationFrame callbacks
+- **Security enhancements**: Replaced `innerHTML` with safer DOM methods in `js/onboarding.js`
+  - Changed `innerHTML = '✓'` to `textContent = '✓'` for checkmark display
+  - Replaced `innerHTML` with `createElement()` and `appendChild()` for submit button spinner
+  - Updated container clearing from `innerHTML = ''` to `removeChild()` loop
+- **Template literals**: Converted string concatenation to template literals in email input generation
+- **Code cleanup**: Removed production `console.log()` statements from both JS files
+- **Anti-pattern removal**: Refactored function reassignment pattern in `showStep()` function
+  - Moved `generateSummary()` call directly into `showStep()` function body
+  - Eliminated hacky function wrapping approach
+
+### Technical Improvements
+- Improved code readability and consistency across JavaScript files
+- Enhanced maintainability with modern ES6+ patterns
+- Reduced potential XSS attack surface with safer DOM manipulation
+- Cleaner function patterns following JavaScript best practices
+
+### Files Modified
+- `js/main.js` - Modernized arrow functions (14 improvements), removed console log
+- `js/onboarding.js` - Security improvements, template literals, cleaner patterns (7 improvements)
+
+### Developer Notes
+- All changes are backward-compatible
+- No breaking changes to functionality
+- Commit: `d459d07`
+
+---
+
 ## [2.0.0] - 2026-01-08
 
 ### Major Content Updates
