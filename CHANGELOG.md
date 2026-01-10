@@ -4,6 +4,20 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.1.1] - 2026-01-09
+
+### Fixed
+- **Delivery timeline inconsistency**: Updated pricing.html line 173 to reflect correct 14 business days delivery timeline (was incorrectly showing 10 business days)
+  - This ensures consistency with live site and all other documentation
+  - Affects: Website Development section on pricing page
+  - Now matches: services.html, about.html, and rest of pricing.html
+
+### Documentation
+- This fix aligns local codebase with live site at bluenode.vercel.app
+- No functional changes, only correcting inconsistent timeline information
+
+---
+
 ## [2.1.0] - 2026-01-09
 
 ### Code Quality & Security Improvements
