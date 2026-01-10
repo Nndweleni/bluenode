@@ -416,25 +416,102 @@
     background-color: var(--color-accent-light);
 }
 
+/* Custom Checkbox & Radio Button Styling */
 .radio-option input[type="radio"],
 .checkbox-option input[type="checkbox"] {
-    margin-top: 0;
-    width: 20px;
-    height: 20px;
-    accent-color: var(--color-accent);
+    /* Hide native input but keep it accessible */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 22px;
+    height: 22px;
+    margin: 0;
     cursor: pointer;
     flex-shrink: 0;
-    /* Accessible touch target: visual is 20px but clickable area is 44px (WCAG 2.5.5) */
-    padding: 12px;
-    margin: -12px;
+    position: relative;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-border);
+    transition: all 0.2s ease;
+
+    /* Accessible touch target: visual is 22px but clickable area is 44px (WCAG 2.5.5) */
+    padding: 11px;
+    margin: -11px;
     box-sizing: content-box;
 }
 
+/* Checkbox: Square corners */
+.checkbox-option input[type="checkbox"] {
+    border-radius: 4px;
+}
+
+/* Radio: Circular */
+.radio-option input[type="radio"] {
+    border-radius: 50%;
+}
+
+/* Hover state */
+.radio-option:hover input[type="radio"],
+.checkbox-option:hover input[type="checkbox"] {
+    border-color: var(--color-accent);
+}
+
+/* Focus state (accessibility) */
+.radio-option input[type="radio"]:focus,
+.checkbox-option input[type="checkbox"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-accent-light);
+    border-color: var(--color-accent);
+}
+
+/* Checked state - background */
 .radio-option input[type="radio"]:checked,
 .checkbox-option input[type="checkbox"]:checked {
-    ~ div {
-        color: var(--color-text-primary);
-    }
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* Checkmark for checkbox (using CSS) */
+.checkbox-option input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Dot for radio button (using CSS) */
+.radio-option input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Disabled state */
+.radio-option input[type="radio"]:disabled,
+.checkbox-option input[type="checkbox"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.radio-option:has(input:disabled),
+.checkbox-option:has(input:disabled) {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Text color when checked */
+.radio-option input[type="radio"]:checked ~ div,
+.checkbox-option input[type="checkbox"]:checked ~ div {
+    color: var(--color-text-primary);
 }
 
 .radio-option.selected,

@@ -13,11 +13,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **User impact**: Users can now immediately see where to start filling in the next step
 - **Technical change**: Updated `showStep()` function to scroll to form container with 80px navbar offset
 
-#### Checkbox/Radio Button Sizing and Alignment
-- **Reduced visual size**: Checkbox and radio buttons now display at 20x20px instead of 44x44px
-- **Fixed vertical alignment**: Inputs now properly centered with their label text
-- **Maintained accessibility**: Touch target remains 44x44px for WCAG 2.5.5 compliance using padding trick
-- **User feedback**: Buttons no longer appear oversized while remaining easy to tap on mobile
+#### Custom Checkbox/Radio Button Implementation
+- **Complete redesign**: Replaced native browser inputs with custom CSS-styled controls
+- **Professional appearance**: Clean, modern design with custom checkmarks and radio dots
+- **Visual size**: Checkbox/radio buttons now 22x22px with proper visual weight
+- **Fixed alignment**: Inputs properly centered with their label text
+- **Enhanced states**: Custom hover, focus, checked, and disabled states
+- **Maintained accessibility**: Touch target remains 44x44px for WCAG 2.5.5 compliance
+- **Cross-browser**: Uses `appearance: none` for consistent look across all browsers
+- **CSS-only checkmarks**: No icon fonts needed - pure CSS checkmark (✓) and radio dot (•)
 
 #### Form Submission Error Handling
 - **Improved error debugging**: Now captures and logs actual Web3Forms API error response
@@ -28,7 +32,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 **Files Modified:**
 - `js/onboarding.js` - Fixed scroll behavior (line 155-160), improved error handling (lines 1089-1108)
-- `css/forms.css` - Reduced checkbox/radio visual size, fixed vertical alignment (changed `align-items: flex-start` to `align-items: center` on line 403)
+- `css/forms.css` - Complete custom checkbox/radio button implementation (lines 419-515)
+  - Custom styling using `appearance: none` and CSS pseudo-elements
+  - Checkbox checkmark: CSS border technique (::before at 45deg rotation)
+  - Radio dot: CSS circle with ::before pseudo-element
+  - Fixed vertical alignment: `align-items: center` on line 403
+  - Enhanced states: hover, focus (with ring), checked, disabled
 
 **Debugging Note:**
 - If form submission fails with 400 error, check browser console for "Web3Forms API Error:" message
