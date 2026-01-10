@@ -624,6 +624,10 @@
 }
 
 @media (max-width: 640px) {
+    .form-step {
+        padding-bottom: var(--spacing-xl);
+    }
+
     .form-navigation {
         position: sticky;
         bottom: 0;
