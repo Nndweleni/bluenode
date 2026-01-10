@@ -4,6 +4,257 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.3.0] - 2026-01-10
+
+### Major UX & Design Improvements
+
+This release implements comprehensive UX improvements including typography updates, form flow logic, mobile navigation, and enhanced contact functionality.
+
+---
+
+### Changed
+
+#### 1. Typography - New Font Pairing
+- **Headings**: Changed from JetBrains Mono to **Poppins** (weights: 400, 500, 600, 700)
+- **Body text**: Changed from DM Sans to **Urbanist** (weights: 400, 500, 600)
+- **Monospace**: Kept system monospace stack for code elements
+
+**Files Modified:**
+- `css/variables.css` - Updated `--font-display` and `--font-body` custom properties
+- All 8 HTML files - Updated Google Fonts `<link>` to load Poppins + Urbanist
+
+**CSS Changes in variables.css:**
+```css
+--font-display: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-body: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+
+---
+
+#### 2. Form Flow Logic - Service-Based Step Visibility
+- **Dynamic questionnaire**: Form now shows different steps based on selected service type
+- **Smarter navigation**: Users only see steps relevant to their selection
+
+**Step Flows by Service Type:**
+| Service Type | Steps Shown |
+|--------------|-------------|
+| Website development only | 1, 2, 3, 4, 5, 6, 7, 8, 9 (all) |
+| Hosting only (no website) | 1, 2, 6, 7, 8, 9 |
+| Website + Hosting | 1, 2, 3, 4, 5, 6, 7, 8, 9 (all) |
+| Business Email only | 1, 2, 7, 8, 9 |
+
+**Files Modified:**
+- `js/onboarding.js` - Updated `getVisibleSteps()` function with new flow logic
+- `onboarding.html` - Removed `data-condition="emailSetup"` from Step 7 (now flow-based)
+
+**Technical Details:**
+```javascript
+function getVisibleSteps() {
+    const pkg = FormState.packageInfo.package;
+    const packageType = FormState.packageInfo.type;
+
+    // Business Email Hosting only: Steps 1, 2, 7, 8, 9
+    if (pkg === 'email-setup' || packageType === 'email-only') {
+        return [1, 2, 7, 8, 9];
+    }
+
+    // Hosting without website: Steps 1, 2, 6, 7, 8, 9
+    if (pkg === 'hosting-only') {
+        return [1, 2, 6, 7, 8, 9];
+    }
+
+    // Website packages: All steps (1-9)
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9];
+}
+```
+
+---
+
+#### 3. Mobile Navigation - Bottom Navigation Bar
+- **New pattern**: Replaced hamburger menu with fixed bottom navigation bar on mobile/tablet
+- **Breakpoint**: Activates below 1024px (tablets and phones)
+- **Navigation items**: Home, Services, Pricing, More (with submenu)
+- **More menu**: Popup containing About, Terms, Privacy, Contact links
+
+**Files Modified:**
+- `css/components.css` - Added 100+ lines of bottom nav and more menu styles
+- `js/main.js` - Added More menu toggle, click-outside close, escape key handlers, active state highlighting
+- 6 HTML files - Added bottom nav HTML (index, about, services, pricing, terms, privacy)
+
+**CSS Features:**
+- Fixed position at bottom of viewport
+- Safe area inset padding for notched devices
+- Active state highlighting for current page
+- Slide-up animation for More menu popup
+- Hidden hamburger menu when bottom nav is active
+
+**HTML Structure Added:**
+```html
+<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <a href="index.html" class="bottom-nav-item"><!-- Home icon + label --></a>
+    <a href="services.html" class="bottom-nav-item"><!-- Services icon + label --></a>
+    <a href="pricing.html" class="bottom-nav-item"><!-- Pricing icon + label --></a>
+    <button class="bottom-nav-item bottom-nav-more"><!-- More icon + label --></button>
+</nav>
+<div class="more-menu" id="moreMenu">
+    <a href="about.html">About</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:...">Contact</a>
+</div>
+```
+
+---
+
+### Added
+
+#### 4. Add-On Services in Step 2
+- **New section**: "Additional Services" checkboxes in Step 2 (Service Selection)
+- **Optional add-ons**: Users can select additional services during onboarding
+- **Summary integration**: Selected add-ons appear in Step 9 review summary
+
+**Add-On Options:**
+| Service | Price |
+|---------|-------|
+| Website Maintenance | R400/month |
+| DNS Management | R100/month |
+| SEO Starter Boost | R500 (once-off) |
+| WhatsApp Contact Button | R150 (once-off) |
+| Priority Email Support | R150/month |
+
+**Files Modified:**
+- `onboarding.html` - Added Additional Services fieldset in Step 2
+- `js/onboarding.js` - Updated `generateSummary()` to display selected add-ons
+
+**HTML Added to Step 2:**
+```html
+<fieldset class="form-section">
+    <legend>Additional Services (Optional)</legend>
+    <p class="form-help">Select any add-on services you're interested in.</p>
+    <div class="checkbox-group">
+        <label class="checkbox-option">
+            <input type="checkbox" name="addons" value="maintenance">
+            <span>Website Maintenance (R400/month)</span>
+        </label>
+        <!-- ... more options ... -->
+    </div>
+</fieldset>
+```
+
+---
+
+#### 5. Pre-Written Messages for Contact Buttons
+- **Email templates**: All mailto: links now include pre-filled subject and body
+- **WhatsApp messages**: WhatsApp links include pre-written inquiry text
+- **Context-aware**: Different messages for different button contexts
+
+**Buttons Updated:**
+
+| Page | Button | Message Type |
+|------|--------|--------------|
+| index.html | Nav "Contact Us" | General inquiry template |
+| index.html | "Get Free Quote" | Quote request template |
+| index.html | "WhatsApp Me" | WhatsApp inquiry |
+| about.html | Nav "Contact Us" | General inquiry template |
+| about.html | "Claim Your Spot" | Portfolio offer inquiry |
+| about.html | "Get in Touch" | General inquiry template |
+| about.html | "WhatsApp Me" | WhatsApp inquiry |
+| services.html | Nav "Contact Us" | General inquiry template |
+| services.html | "Add Maintenance" | Maintenance inquiry |
+| services.html | CTA "Contact Us" | General inquiry template |
+| pricing.html | Nav "Contact Us" | General inquiry template |
+| terms.html | Nav "Contact Us" | General inquiry template |
+| terms.html | CTA "Contact Us" | Terms question template |
+| privacy.html | Nav "Contact Us" | General inquiry template |
+| All pages | More menu "Contact" | General inquiry template |
+
+**Example Pre-Written Email Template:**
+```
+Subject: Website Inquiry
+Body:
+Hi Bluenode,
+
+I'm interested in learning more about your web development services.
+
+Name:
+Business:
+Type of project:
+
+Looking forward to hearing from you.
+```
+
+**Example WhatsApp Message:**
+```
+Hi Bluenode! I'm interested in your web development services.
+I'd like to know more about your packages and pricing.
+```
+
+---
+
+### Fixed
+
+#### 6. Checkbox/Radio Button Sizing and Alignment
+- **Size reduced**: Changed from oversized to proper 20x20px dimensions
+- **Alignment fixed**: Labels now properly align with inputs using flexbox
+- **Touch targets preserved**: Maintains 44px minimum touch target for accessibility
+
+**Files Modified:**
+- `css/forms.css` - Updated `.radio-option`, `.checkbox-option`, and input styles
+
+**CSS Changes:**
+```css
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    /* ... */
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 2px 0 0 0;
+    padding: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+```
+
+---
+
+### Files Summary
+
+**Modified Files:**
+| File | Changes |
+|------|---------|
+| `css/variables.css` | Font family updates |
+| `css/forms.css` | Checkbox/radio alignment fix |
+| `css/components.css` | Mobile bottom nav styles (100+ lines) |
+| `js/main.js` | More menu JS, active state highlighting |
+| `js/onboarding.js` | Form flow logic, add-ons in summary |
+| `onboarding.html` | Add-on services section, Step 7 condition removed |
+| `index.html` | Fonts, bottom nav, pre-written messages |
+| `about.html` | Fonts, bottom nav, pre-written messages |
+| `services.html` | Fonts, bottom nav, pre-written messages |
+| `pricing.html` | Fonts, bottom nav, pre-written messages |
+| `terms.html` | Fonts, bottom nav, pre-written messages |
+| `privacy.html` | Fonts, bottom nav, pre-written messages |
+
+---
+
+### Developer Notes
+- All changes are backward-compatible
+- Mobile bottom nav only visible below 1024px breakpoint
+- Form flow logic is determined by package selection in Step 2
+- Pre-written messages use URL encoding for special characters
+- Font loading uses `display=swap` for performance
+
+---
+
 ## [2.2.1] - 2026-01-10
 
 ### Fixed

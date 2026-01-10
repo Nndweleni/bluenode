@@ -253,4 +253,60 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 
+    // ===== Mobile Bottom Navigation - More Menu =====
+    const moreButton = document.querySelector('.bottom-nav-more');
+    const moreMenu = document.getElementById('moreMenu');
+
+    if (moreButton && moreMenu) {
+        moreButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = moreMenu.classList.contains('active');
+
+            if (isOpen) {
+                closeMoreMenu();
+            } else {
+                openMoreMenu();
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', function(event) {
+            if (moreMenu && !moreMenu.contains(event.target) && !moreButton.contains(event.target)) {
+                closeMoreMenu();
+            }
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && moreMenu.classList.contains('active')) {
+                closeMoreMenu();
+            }
+        });
+    }
+
+    function openMoreMenu() {
+        if (moreMenu && moreButton) {
+            moreMenu.classList.add('active');
+            moreMenu.setAttribute('aria-hidden', 'false');
+            moreButton.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    function closeMoreMenu() {
+        if (moreMenu && moreButton) {
+            moreMenu.classList.remove('active');
+            moreMenu.setAttribute('aria-hidden', 'true');
+            moreButton.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    // ===== Active Bottom Nav Highlighting =====
+    const bottomNavItems = document.querySelectorAll('.bottom-nav-item:not(.bottom-nav-more)');
+    bottomNavItems.forEach((item) => {
+        const href = item.getAttribute('href');
+        if (href && (href === currentPage || (isHomePage && (href === 'index.html' || href === '/')))) {
+            item.classList.add('active');
+        }
+    });
+
 });

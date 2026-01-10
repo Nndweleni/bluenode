@@ -629,24 +629,23 @@ function initInlineValidation() {
  */
 function getVisibleSteps() {
     const pkg = FormState.packageInfo.package;
-    const hasEmailAddon = FormState.formData.emailSetup === true;
+    const packageType = FormState.packageInfo.type;
 
-    // Email-only flow: 1, 2, 6, 8, 9
-    if (pkg === 'email-setup') {
-        return [1, 2, 6, 8, 9];
+    // Business Email Hosting only: Steps 1, 2, 7, 8, 9
+    // Skips website steps (3,4,5) and domain/hosting step (6) since email setup handles domain
+    if (pkg === 'email-setup' || packageType === 'email-only') {
+        return [1, 2, 7, 8, 9];
     }
 
-    // Hosting-only flow: 1, 2, 6, 8, 9
+    // Hosting without website: Steps 1, 2, 6, 7, 8, 9
+    // Includes domain/hosting step and email setup option
     if (pkg === 'hosting-only') {
-        return [1, 2, 6, 8, 9];
+        return [1, 2, 6, 7, 8, 9];
     }
 
-    // Website packages: full flow, step 7 conditional on email addon
-    const steps = [1, 2, 3, 4, 5, 6, 8, 9];
-    if (hasEmailAddon) {
-        steps.splice(6, 0, 7); // Insert step 7 after step 6
-    }
-    return steps;
+    // Website development only OR Website + Hosting: All steps (1-9)
+    // Full flow includes all website steps, domain/hosting, and email setup
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9];
 }
 
 /**
@@ -712,12 +711,15 @@ function getPreviousVisibleStep(currentStep) {
  */
 function checkCondition(conditionName) {
     const pkg = FormState.packageInfo.package;
+    const packageType = FormState.packageInfo.type;
 
     switch (conditionName) {
         case 'emailSetup':
-            return FormState.formData.emailSetup === true;
+            // Step 7 visibility is now determined by getVisibleSteps(), not this condition
+            // Return true to allow the step to show when it's in the visible steps array
+            return true;
         case 'requiresWebsite':
-            return !['email-setup', 'hosting-only'].includes(pkg);
+            return !['email-setup', 'hosting-only'].includes(pkg) && packageType !== 'email-only';
         default:
             return true;
     }
@@ -906,7 +908,12 @@ function generateSummary() {
             fields: [
                 { label: 'Package', value: getPackageDisplayName(FormState.packageInfo.package) },
                 { label: 'Email Setup', value: FormState.formData.emailSetup ? 'Yes' : 'No' },
-                { label: 'Additional Mailboxes', value: FormState.formData.additionalMailboxes ? 'Yes' : 'No' }
+                { label: 'Additional Mailboxes', value: FormState.formData.additionalMailboxes ? 'Yes' : 'No' },
+                { label: 'Website Maintenance', value: FormState.formData.addonMaintenance ? 'Yes (R400/mo)' : 'No' },
+                { label: 'DNS Management', value: FormState.formData.addonDNS ? 'Yes (R100/mo)' : 'No' },
+                { label: 'SEO Starter Boost', value: FormState.formData.addonSEO ? 'Yes (R500)' : 'No' },
+                { label: 'WhatsApp Button', value: FormState.formData.addonWhatsApp ? 'Yes (R150)' : 'No' },
+                { label: 'Priority Support', value: FormState.formData.addonPrioritySupport ? 'Yes (R150/mo)' : 'No' }
             ]
         },
         {

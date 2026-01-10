@@ -15,10 +15,10 @@
     <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
-    <!-- Google Fonts - JetBrains Mono + DM Sans -->
+    <!-- Google Fonts - Poppins + Urbanist -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Urbanist:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/reset.css">
@@ -240,6 +240,48 @@
                                             <div>
                                                 <strong>Additional Email Mailboxes</strong>
                                                 <p class="form-helper">Extra mailboxes beyond the first 3 (R80 per mailbox)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Additional Services</label>
+                                    <p class="form-helper" style="margin-bottom: var(--spacing-sm);">Enhance your package with these add-on services</p>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-option">
+                                            <input type="checkbox" id="addonMaintenance" name="addonMaintenance" value="400">
+                                            <div>
+                                                <strong>Website Maintenance</strong>
+                                                <p class="form-helper">R400/month - Monthly updates, backups, and priority support</p>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-option">
+                                            <input type="checkbox" id="addonDNS" name="addonDNS" value="100">
+                                            <div>
+                                                <strong>DNS Management</strong>
+                                                <p class="form-helper">R100/month - We manage your domain's DNS settings</p>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-option">
+                                            <input type="checkbox" id="addonSEO" name="addonSEO" value="500">
+                                            <div>
+                                                <strong>SEO Starter Boost</strong>
+                                                <p class="form-helper">R500 once-off - Enhanced SEO setup for better visibility</p>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-option">
+                                            <input type="checkbox" id="addonWhatsApp" name="addonWhatsApp" value="150">
+                                            <div>
+                                                <strong>WhatsApp Contact Button</strong>
+                                                <p class="form-helper">R150 once-off - Direct WhatsApp integration on your site</p>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-option">
+                                            <input type="checkbox" id="addonPrioritySupport" name="addonPrioritySupport" value="150">
+                                            <div>
+                                                <strong>Priority Email Support</strong>
+                                                <p class="form-helper">R150/month - Faster response times for support requests</p>
                                             </div>
                                         </div>
                                     </div>
@@ -572,8 +614,8 @@
                                 </div>
                             </div>
 
-                            <!-- STEP 7: Email Setup (Conditional) -->
-                            <div class="form-step" data-step="7" data-condition="emailSetup">
+                            <!-- STEP 7: Email Setup (shown based on package flow) -->
+                            <div class="form-step" data-step="7">
                                 <h2>Email Setup</h2>
                                 <p class="step-description">Configure your professional email addresses.</p>
 
