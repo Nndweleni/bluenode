@@ -4,6 +4,47 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.2.1] - 2026-01-10
+
+### Fixed
+
+#### Form Navigation Scroll Issue
+- **Fixed scroll behavior**: Next button now scrolls to the form container instead of the very top of the page
+- **User impact**: Users can now immediately see where to start filling in the next step
+- **Technical change**: Updated `showStep()` function to scroll to form container with 80px navbar offset
+
+#### Custom Checkbox/Radio Button Implementation
+- **Complete redesign**: Replaced native browser inputs with custom CSS-styled controls
+- **Professional appearance**: Clean, modern design with custom checkmarks and radio dots
+- **Visual size**: Checkbox/radio buttons now 22x22px with proper visual weight
+- **Fixed alignment**: Inputs properly centered with their label text
+- **Enhanced states**: Custom hover, focus, checked, and disabled states
+- **Maintained accessibility**: Touch target remains 44x44px for WCAG 2.5.5 compliance
+- **Cross-browser**: Uses `appearance: none` for consistent look across all browsers
+- **CSS-only checkmarks**: No icon fonts needed - pure CSS checkmark (✓) and radio dot (•)
+
+#### Form Submission Error Handling
+- **Improved error debugging**: Now captures and logs actual Web3Forms API error response
+- **Better error messages**: Console shows specific API error details (e.g., invalid access key, missing fields)
+- **Technical change**: Added JSON response parsing in error handling to display meaningful error messages
+
+### Technical Details
+
+**Files Modified:**
+- `js/onboarding.js` - Fixed scroll behavior (line 155-160), improved error handling (lines 1089-1108)
+- `css/forms.css` - Complete custom checkbox/radio button implementation (lines 419-515)
+  - Custom styling using `appearance: none` and CSS pseudo-elements
+  - Checkbox checkmark: CSS border technique (::before at 45deg rotation)
+  - Radio dot: CSS circle with ::before pseudo-element
+  - Fixed vertical alignment: `align-items: center` on line 403
+  - Enhanced states: hover, focus (with ring), checked, disabled
+
+**Debugging Note:**
+- If form submission fails with 400 error, check browser console for "Web3Forms API Error:" message
+- This will show the specific reason from the API (invalid key, missing required fields, file issues, etc.)
+
+---
+
 ## [2.2.0] - 2026-01-09
 
 ### Added - UX Enhancements (Research-Backed)

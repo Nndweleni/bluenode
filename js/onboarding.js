@@ -152,8 +152,12 @@ function showStep(stepNumber) {
         generateSummary();
     }
 
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to form container (not the very top)
+    const formContainer = document.querySelector('.form-container');
+    if (formContainer) {
+        const offsetTop = formContainer.getBoundingClientRect().top + window.pageYOffset - 80; // 80px offset for navbar
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
 
     FormState.currentStep = stepNumber;
     FormState.save();
@@ -1084,19 +1088,24 @@ function submitForm(e) {
     })
     .then(function(response) {
         clearTimeout(timeoutId);
-        if (response.ok) {
-            // Capture client data BEFORE clearing form state
-            const clientName = FormState.formData.fullName || 'valued client';
-            const packageName = FormState.packageInfo.package;
+        // Parse response body for error details
+        return response.json().then(function(data) {
+            if (response.ok) {
+                // Capture client data BEFORE clearing form state
+                const clientName = FormState.formData.fullName || 'valued client';
+                const packageName = FormState.packageInfo.package;
 
-            // Clear form state
-            FormState.clear();
+                // Clear form state
+                FormState.clear();
 
-            // Redirect to thank you page
-            window.location.href = 'thank-you.html?name=' + encodeURIComponent(clientName) + '&package=' + encodeURIComponent(packageName);
-        } else {
-            throw new Error('Submission failed');
-        }
+                // Redirect to thank you page
+                window.location.href = 'thank-you.html?name=' + encodeURIComponent(clientName) + '&package=' + encodeURIComponent(packageName);
+            } else {
+                // Log the actual error from Web3Forms for debugging
+                console.error('Web3Forms API Error:', data);
+                throw new Error(data.message || 'Submission failed');
+            }
+        });
     })
     .catch(function(error) {
         clearTimeout(timeoutId);
