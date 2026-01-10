@@ -13,8 +13,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **User impact**: Users can now immediately see where to start filling in the next step
 - **Technical change**: Updated `showStep()` function to scroll to form container with 80px navbar offset
 
-#### Checkbox/Radio Button Sizing
+#### Checkbox/Radio Button Sizing and Alignment
 - **Reduced visual size**: Checkbox and radio buttons now display at 20x20px instead of 44x44px
+- **Fixed vertical alignment**: Inputs now properly centered with their label text
 - **Maintained accessibility**: Touch target remains 44x44px for WCAG 2.5.5 compliance using padding trick
 - **User feedback**: Buttons no longer appear oversized while remaining easy to tap on mobile
 
@@ -27,7 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 **Files Modified:**
 - `js/onboarding.js` - Fixed scroll behavior (line 155-160), improved error handling (lines 1089-1108)
-- `css/forms.css` - Reduced checkbox/radio visual size while maintaining accessibility (lines 419-431)
+- `css/forms.css` - Reduced checkbox/radio visual size, fixed vertical alignment (changed `align-items: flex-start` to `align-items: center` on line 403)
 
 **Debugging Note:**
 - If form submission fails with 400 error, check browser console for "Web3Forms API Error:" message
