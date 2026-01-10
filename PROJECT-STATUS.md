@@ -1,6 +1,6 @@
 # Bluenode Website - Project Status
 
-Last Updated: 2026-01-09 (v2.2.0)
+Last Updated: 2026-01-10 (v2.2.1 - In Progress)
 
 ## Overview
 
@@ -70,12 +70,19 @@ Last Updated: 2026-01-09 (v2.2.0)
   - [x] Success/error state visual feedback
   - [x] WCAG 2.1 AA compliant error display
   - [x] Progressive loading messages (5-stage)
+- [x] Form UX improvements (v2.2.1 - In Progress)
+  - [x] Fixed scroll behavior (scrolls to form container, not page top)
+  - [x] Custom-styled checkboxes with CSS checkmarks
+  - [x] Custom-styled radio buttons with CSS dots
+  - [x] Improved form submission error debugging
+  - [x] Enhanced visual states (hover, focus, checked, disabled)
+  - [x] 22x22px visual size with 44x44px touch targets (WCAG 2.5.5)
 
 ## Known Issues
 
 | Issue | Status | Priority | Notes |
 |-------|--------|----------|-------|
-| None currently tracked | - | - | - |
+| Web3Forms 400 error on submission | Investigating | High | Form submission failing - improved error logging added in v2.2.1. Check browser console for "Web3Forms API Error:" message to see specific cause (invalid key, missing fields, etc.) |
 
 ## Security Considerations
 
@@ -185,6 +192,73 @@ Steps: 1 (Client) → 2 (Service) → 6 (Domain) → 8 (Legal) → 9 (Review)
 - Merge to `main` via GitLab merge requests only
 
 See **GIT-WORKFLOW.md** for complete workflow documentation.
+
+## Current Work (2026-01-10)
+
+### ✅ Completed This Session (v2.2.1)
+
+**Branch:** `bugfix/form-scroll-size-submission-fixes`
+
+**User-Reported Issues Fixed:**
+1. **Form scroll issue** - Next button scrolled to page top instead of form area ✅
+2. **Checkbox/radio size** - Inputs appeared too large (44x44px) ✅
+3. **Checkbox/radio alignment** - Inputs not vertically centered with text ✅
+4. **Form submission 400 error** - No debugging information available ✅
+
+**Improvements Made:**
+- Custom CSS-styled checkboxes and radio buttons (replaced native browser inputs)
+- CSS checkmark (✓) using border rotation technique
+- CSS radio dot (•) using pseudo-element
+- Enhanced visual states: default, hover, focus (with ring), checked, disabled
+- Scroll to form container with 80px navbar offset
+- Improved error handling with JSON response parsing
+- Better console error messages for Web3Forms debugging
+
+**Files Modified:**
+- `js/onboarding.js` - Scroll behavior, error handling
+- `css/forms.css` - Custom checkbox/radio styling, alignment
+- `CHANGELOG.md` - v2.2.1 release notes
+
+**Commits:**
+- `3ed09bf` - Initial bugfixes (scroll, size, error handling)
+- `420c4be` - Alignment fix
+- `9e6a7e7` - Custom checkbox/radio implementation
+
+### 🔄 Pending Merge Requests
+
+| Branch | Target | Status | Description |
+|--------|--------|--------|-------------|
+| `bugfix/update-readme-with-workflow` | main | Awaiting merge | Added git workflow documentation to README |
+| `bugfix/fix-delivery-timeline-inconsistency` | main | Awaiting merge | Fixed pricing page delivery timeline (10→14 days) |
+| `feature/ux-enhancements-forms-loading` | main | Awaiting merge | UX improvements (v2.2.0): inline validation, progressive loading |
+| `bugfix/form-scroll-size-submission-fixes` | main | Ready for testing | Form UX fixes (v2.2.1): scroll, custom inputs, error debugging |
+
+**Merge Request URLs:**
+- https://gitlab.lennyhomelab.net/bluenode-technlogies/bluenode/-/merge_requests/new?merge_request%5Bsource_branch%5D=bugfix/form-scroll-size-submission-fixes
+
+### ⏳ Pending Tasks
+
+**High Priority:**
+- [ ] Test form submission and identify Web3Forms 400 error cause
+- [ ] Verify all merge requests work correctly
+- [ ] Test custom checkbox/radio buttons on mobile devices
+- [ ] Merge all pending branches to main
+
+**Medium Priority:**
+- [ ] Consider installing GitLab CLI (glab) for issue tracking
+- [ ] Create GitLab issues for future enhancements
+- [ ] Test all package flows thoroughly (as per TODO list)
+
+**Low Priority:**
+- [ ] Review and address MEDIUM priority UX improvements
+- [ ] Consider implementing MEDIUM/LOW priority items from earlier analysis
+
+### 📋 Next Steps
+
+1. **Test the bugfixes** - Try the onboarding form with the latest changes
+2. **Check Web3Forms error** - Look at browser console for specific error message
+3. **Merge branches** - Once tested, merge all 4 pending merge requests to main
+4. **Deploy to production** - Update live site with v2.2.1 changes
 
 ## Deployment
 
