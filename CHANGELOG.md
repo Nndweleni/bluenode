@@ -4,6 +4,37 @@ All notable changes to the Bluenode website project will be documented in this f
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.2.1] - 2026-01-10
+
+### Fixed
+
+#### Form Navigation Scroll Issue
+- **Fixed scroll behavior**: Next button now scrolls to the form container instead of the very top of the page
+- **User impact**: Users can now immediately see where to start filling in the next step
+- **Technical change**: Updated `showStep()` function to scroll to form container with 80px navbar offset
+
+#### Checkbox/Radio Button Sizing
+- **Reduced visual size**: Checkbox and radio buttons now display at 20x20px instead of 44x44px
+- **Maintained accessibility**: Touch target remains 44x44px for WCAG 2.5.5 compliance using padding trick
+- **User feedback**: Buttons no longer appear oversized while remaining easy to tap on mobile
+
+#### Form Submission Error Handling
+- **Improved error debugging**: Now captures and logs actual Web3Forms API error response
+- **Better error messages**: Console shows specific API error details (e.g., invalid access key, missing fields)
+- **Technical change**: Added JSON response parsing in error handling to display meaningful error messages
+
+### Technical Details
+
+**Files Modified:**
+- `js/onboarding.js` - Fixed scroll behavior (line 155-160), improved error handling (lines 1089-1108)
+- `css/forms.css` - Reduced checkbox/radio visual size while maintaining accessibility (lines 419-431)
+
+**Debugging Note:**
+- If form submission fails with 400 error, check browser console for "Web3Forms API Error:" message
+- This will show the specific reason from the API (invalid key, missing required fields, file issues, etc.)
+
+---
+
 ## [2.2.0] - 2026-01-09
 
 ### Added - UX Enhancements (Research-Backed)

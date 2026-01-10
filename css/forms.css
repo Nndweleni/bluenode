@@ -419,16 +419,14 @@
 .radio-option input[type="radio"],
 .checkbox-option input[type="checkbox"] {
     margin-top: 0;
-    width: 24px;
-    height: 24px;
-    min-width: 44px;
-    min-height: 44px;
+    width: 20px;
+    height: 20px;
     accent-color: var(--color-accent);
     cursor: pointer;
     flex-shrink: 0;
-    /* Touch target: visual is 24px but clickable area is 44px */
-    padding: 10px;
-    margin: -10px;
+    /* Accessible touch target: visual is 20px but clickable area is 44px (WCAG 2.5.5) */
+    padding: 12px;
+    margin: -12px;
     box-sizing: content-box;
 }
 
